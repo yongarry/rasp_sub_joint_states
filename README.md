@@ -44,5 +44,5 @@ Need [ros-melodic](http://wiki.ros.org/ROSberryPi/Installing%20ROS%20Melodic%20o
 
   1. Make sure you run `roslaunch armrobot_moveit demo.launch` on your master PC. (Also make sure your PC and raspberry is connect with ROS.) 
 
-    $ rosrun rasp_sub_joint_states
+    $ rosrun rasp_sub_joint_states servo_control
     
