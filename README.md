@@ -6,9 +6,7 @@ Subscribes joint_states from moveit and give servo control by raspberry
 
 Need [ros-melodic](http://wiki.ros.org/ROSberryPi/Installing%20ROS%20Melodic%20on%20the%20Raspberry%20Pi) installed in rasbian
 
-  1. Do step `2.Prerequisites` ( for recieving key failure try this.)
-
-`wget http://packages.ros.org/ros.key -O - | sudo apt-key add -`
+  1. Do step `2.Prerequisites` ( for recieving key failure try this.`wget http://packages.ros.org/ros.key -O - | sudo apt-key add -`)
 
   2. For `3.Installation` follow this.
   
