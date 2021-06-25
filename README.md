@@ -32,6 +32,6 @@ Need [ros-melodic](http://wiki.ros.org/ROSberryPi/Installing%20ROS%20Melodic%20o
   4. Ros connect Two machines(master PC & raspberry)
     For instruction click [here](https://blog.iolate.kr/225#:~:text=ROS%20%EB%8A%94%20TCP%20layer%EC%97%90%EC%84%9C,%ED%95%9C%EB%8B%A4%EC%9D%8C%EC%97%90%20%EC%84%A4%EC%A0%95%EC%9D%84%20%ED%95%B4%EC%A3%BC%EB%A9%B4%20%EB%90%A8.).
    
-[wiringPi](https://roboticsbackend.com/introduction-to-wiringpi-for-raspberry-pi/)
+  5. [wiringPi](https://roboticsbackend.com/introduction-to-wiringpi-for-raspberry-pi/)
 
     $ sudo apt-get install wiringpi
