@@ -12,6 +12,7 @@ find_package(catkin REQUIRED COMPONENTS
   rospy
   sensor_msgs
   std_msgs
+  actionlib_msgs
 )
 
 ## System dependencies are found with CMake's conventions
@@ -149,6 +150,7 @@ add_executable(servo_control src/sub_joint_states.cpp)
 ## Specify libraries to link a library or executable target against
 target_link_libraries(servo_control
   ${catkin_LIBRARIES}
+  -lwiringPi
 )
 
 #############
