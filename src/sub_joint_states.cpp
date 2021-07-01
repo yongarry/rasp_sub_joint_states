@@ -5,15 +5,24 @@
 
 #include <wiringPi.h>
 #include <softPwm.h>
+#include <Stepper.h>
+#include "bcm2835.h"
 
 // set up your custom GPIO pin
-#define Joint1  3
-#define Joint2  4
-#define Joint3  5
-#define Joint4  6
-#define Joint5  7
-#define GRIPPER 8
+#define Joint1  14
 
+#define Joint3  15
+#define Joint4  18
+#define Joint5  23
+#define GRIPPER 24
+
+//STEPPER MOTOR 
+#define STEPS_PER_REVOLUTION 512 //512 steps per revolution
+#define IN1     12
+#define IN2     16
+#define IN3     20
+#define IN4     21
+#define speed   20              //set your stepper motor speed
 
 //Function: resize joint angle in radian to motor pwm value in int
 int resize(float rad)
@@ -59,7 +68,9 @@ void servoCallback(const sensor_msgs::JointState msg)
     ROS_INFO("degree: [%d],[%f]", degree1,degree_f1);
     
     softPwmWrite(Joint1,degree1);
-    softPwmWrite(Joint2,degree2);
+    Stepper motor2(STEPS_PER_REVOLUTION, IN1, IN2, IN3, IN4);
+    motor2.setSpeed(speed);
+    motor2.step(degree2);
     softPwmWrite(Joint3,degree3);
     softPwmWrite(Joint4,degree4);
     softPwmWrite(Joint5,degree5);
@@ -77,15 +88,15 @@ void statusCallback(const actionlib_msgs::GoalStatusArray msg)
     // string textmsg = msg.status_list[0].text;
     ROS_INFO("[%s]",msg.status_list[0].text.c_str());
     
-    switch (status_flag)
-    {
-    case 3:
-        softPwmWrite(GRIPPER,128);
-        break;
-    
-    default:
-        softPwmWrite(GRIPPER,0);
-    }
+    //switch (status_flag)
+    //{
+    //case 3:
+    //    softPwmWrite(GRIPPER,128);
+    //    break;
+    //
+    //default:
+    //    softPwmWrite(GRIPPER,0);
+    //}
 }
 
 int main(int argc, char **argv)
@@ -96,7 +107,7 @@ int main(int argc, char **argv)
     wiringPiSetupGpio();
 
     softPwmCreate(Joint1,0,255);
-    softPwmCreate(Joint2,0,255);
+    
     softPwmCreate(Joint3,0,255);
     softPwmCreate(Joint4,0,255);
     softPwmCreate(Joint5,0,255);
