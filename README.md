@@ -36,6 +36,17 @@ Need ros-melodic (click [here](http://wiki.ros.org/ROSberryPi/Installing%20ROS%2
     Need to download wiring pi package
     
     $ sudo apt-get install wiringpi
+  
+  6. [Stepper Library](https://github.com/abewieland/RPI-Stepper)
+    Need to download bcm2835
+    
+    $ wget http://www.airspayce.com/mikem/bcm2835/bcm2835-1.68.tar.gz
+    $ tar zxf bcm2835-1.xx.tar.gz
+    $ cd bcm2835-1.xx
+    $ ./configure
+    $ make
+    $ sudo make check
+    $ sudo make install
 
 ## How to build
 
